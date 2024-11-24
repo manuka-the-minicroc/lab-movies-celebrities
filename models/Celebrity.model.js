@@ -1,11 +1,12 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+// or maybe I cam write: const {Schema} = mongoose;
 
 // Define the Celebrity schema
-const celebSchema = new Schema({
+const CelebSchema = new Schema({
   name: {
     type: String,
-    required: [true, 'Hey, put a name please!'] // Name is required
+    required: true// Name is required
   },
   occupation: {
     type: String,
@@ -13,12 +14,12 @@ const celebSchema = new Schema({
   },
   catchphrase: {
     type: String,
-    required: [true, 'Where is the catch phrase???'] // Catchphrase is required
+    required: true // Catchphrase is required
   },
 });
 
 // Create the Celebrity model
-const Celeb = mongoose.model("Celeb", celebSchema);
+const Celebrity = mongoose.model("Celebrity", CelebSchema);
 
 // Export the model
-module.exports = Celeb;
+module.exports = Celebrity;

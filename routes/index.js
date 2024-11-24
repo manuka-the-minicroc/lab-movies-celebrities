@@ -1,13 +1,17 @@
 const router = require("express").Router();
-// linking movies 
-const movieRoutes = require ('./routes/movies.routes');
-// linking celebs 
-const celebRoutes = require ('./routes/celebrities.routes');
+const celebritiesRoutes = require("./celebrities.routes");
+const moviesRoutes = require("./movies.routes");
 
-/* GET home page */
+// GET home page
 router.get("/", (req, res, next) => {
-  res.render("index");
+    res.render("index");
 });
 
+// Use celebrities routes
+router.use("/celebrities", celebritiesRoutes);
+
+// Use movies routes
+router.use("/movies",moviesRoutes);
 
 module.exports = router;
+
